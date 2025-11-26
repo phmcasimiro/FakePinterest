@@ -1,0 +1,7 @@
+# Projeto Fake Pinterest
+
+### Minicurso Site com Flask Hashtag Treinamentos
+
+[Link Hashtag Treinamentos Site com Flask - Parei na Aula 3](https://blp.hashtagtreinamentos.com/python/minicurso/criacao-sites-python?_gl=1*1kloey4*_gcl_au*MTgxMDM4OTIxNC4xNzYyMzY2Njc0LjE4NzAyMjI1NDIuMTc2NDE4NzIzMC4xNzY0MTg3MjMx*_ga*MTY0MjU4NzIzOS4xNzYyMzY2Njc1*_ga_8VXCNB69RS*czE3NjQxODcyMDEkbzIkZzEkdDE3NjQxODcyMzQkajI3JGwwJGgw*_fplc*cGVabWxTd1RGVzQ0bjFGcEJub0xuVE5ubDEzMW5GVWN2bExZVTBoSkNUZ2FVUzY1dmZaOVVOcnBVYTI3cWxxblhta0RhWVBiaGZiaFQ4SURMUHkyNkppVFVMSHdjR0ZQJTJGS2RHJTJCd2pPMTZDb3JKUGhtU1pmdFdLaExYUGRrUSUzRCUzRA..)
+
+
