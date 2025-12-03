@@ -1,15 +1,8 @@
-from flask import Flask, render_template, url_for
+from FakePinterest import app # importa o app do arquivo __init__.py
 
-app = Flask(__name__)
-
-@app.route('/')
-def homepage():
-    return render_template('homepage.html')
-
-@app.route("/perfil/<usuario>")
-def perfil(usuario):
-    return render_template('perfil.html',usuario=usuario)
-
-
+# __name__ é uma variável que é definida automaticamente pelo Python. 
+# Ela é usada para verificar se o arquivo está sendo executado diretamente ou se está sendo importado como um módulo.
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) # Debug=True permite que o servidor reinicie automaticamente quando houver alterações no código.
+
+
