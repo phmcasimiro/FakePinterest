@@ -15,6 +15,14 @@
 <body>
     <h1>Site Fake Pinterest!</h1>
     <p>Seja bem-vindo ao FakePinterest!</p>
+    {% block formulario %}
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.email.label }} {{ form.email() }}
+        {{ form.senha.label }} {{ form.senha() }}
+        {{ form.submit() }}
+    </form>
+    {% endblock %}
 </body>
 {% endblock %}
 

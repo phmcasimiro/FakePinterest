@@ -1,3 +1,9 @@
+# main.py
+# criado por: phmcasimiro em 05/12/2025
+# Este arquivo contém a função principal da aplicação
+# A função principal é usada para iniciar a aplicação
+# A função principal é usada para iniciar o servidor
+
 from FakePinterest import app # importa o app do arquivo __init__.py
 
 # __name__ é uma variável que é definida automaticamente pelo Python. 
