@@ -18,7 +18,7 @@ def homepage(): # homepage() é a função que será chamada quando a rota '/' f
         usuario = Usuarios.query.filter_by(email=form_login.email.data).first() # usuario é a instância do modelo Usuarios
         if usuario and bcrypt.check_password_hash(usuario.senha, form_login.senha.data): # check_password_hash() é uma função que verifica se a senha é correta
             login_user(usuario, remember=True) # login_user() é uma função que loga o usuário # remember é um booleano que define se o usuário deve ser lembrado
-            return redirect(url_for('perfil', usuario=usuario.username)) # redirect() é uma função que redireciona para a rota raiz
+            return redirect(url_for('perfil', usuario=usuario.id_usuario)) # redirect() é uma função que redireciona para a rota raiz
     return render_template('homepage.html', form=form_login)# render_template() é uma função que renderiza um template HTML.
 
 # '/criarconta' rota para a página de criar conta.
@@ -33,15 +33,19 @@ def criarconta():
         database.session.commit() # commit() é uma função que salva as alterações no banco de dados
         flash('Conta criada com sucesso!', 'sucesso') # flash() é uma função que exibe uma mensagem na tela
         login_user(usuario, remember=True) # login_user() é uma função que loga o usuário
-        return redirect(url_for('perfil', usuario=usuario.username)) # redirect() é uma função que redireciona para a rota raiz
+        return redirect(url_for('perfil', usuario=usuario.id_usuario)) # redirect() é uma função que redireciona para a rota raiz
     return render_template('criarconta.html', form=form_criarconta) # render_template() é uma função que renderiza um template HTML.
 
 # '/perfil/<usuario>' rota para a página do perfil.
 # <usuario> é um parâmetro da rota.
-@app.route("/perfil/<usuario>")
+@app.route("/perfil/<id_usuario>")
 @login_required
-def perfil(usuario): # perfil() é a função que será chamada quando a rota '/perfil/<usuario>' for acessada.
-    return render_template('perfil.html',usuario=usuario) # render_template() é uma função que renderiza um template HTML.
+def perfil(id_usuario): # perfil() é a função que será chamada quando a rota '/perfil/<usuario>' for acessada.
+    if int(id_usuario) == int(current_user.id): # Usuário visitando seu próprio perfil
+        return render_template('perfil.html',usuario=current_user) # render_template() é uma função que renderiza um template HTML.
+    else:
+        usuario = Usuarios.query.get(id_usuario) # usuario é a instância do modelo Usuarios # usuario recebe o id do usuario
+        return render_template('perfil.html',usuario=usuario) # render_template() é uma função que renderiza um template HTML.
 
 @app.route("/logout") # logout() é a função que será chamada quando a rota '/logout' for acessada.
 @login_required # @login_required é um decorator que garante que o usuário esteja logado para acessar a rota
